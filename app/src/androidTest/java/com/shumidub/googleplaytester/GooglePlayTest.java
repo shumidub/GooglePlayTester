@@ -16,7 +16,6 @@ import org.junit.runner.RunWith;
 import org.junit.runners.MethodSorters;
 
 import static android.support.test.InstrumentationRegistry.getInstrumentation;
-import static org.junit.Assert.*;
 
 /**
  * Instrumented test, which will execute on an Android device.
@@ -27,10 +26,13 @@ import static org.junit.Assert.*;
 @FixMethodOrder(MethodSorters.NAME_ASCENDING)
 public class GooglePlayTest {
 
-    Context appContext;
-    UiDevice mDevice;
-    UiObject editText;
-    UiObject button;
+    private Context appContext;
+    private UiDevice mDevice;
+    private UiObject editText;
+    private UiObject goToMarketButton;
+    private UiObject installButton;
+    private UiObject fiveStars;
+    private UiObject submitButton;
 
     @Rule
     public ActivityTestRule<MainActivity> mActivityTestRule = new ActivityTestRule<>(MainActivity.class);
@@ -39,36 +41,33 @@ public class GooglePlayTest {
     public void installApp() {
         appContext = InstrumentationRegistry.getTargetContext();
         mDevice = UiDevice.getInstance(getInstrumentation());
-
         UiObject installButton = mDevice
                 .findObject(new UiSelector().text(appContext.getString(R.string.install)));
-
         editText = mDevice.findObject(new UiSelector().description("editText"));
-        button = mDevice.findObject(new UiSelector().description("button"));
-
+        goToMarketButton = mDevice.findObject(new UiSelector().description("button"));
         try {
             editText.setText("artemshumidub.ru.news");
             mDevice.pressBack();
-            button.click();
-
-            try {
-                Thread.sleep(3000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
+            sleep(2);
+            goToMarketButton.click();
+            sleep(3);
             installButton.click();
-
-            try {
-                Thread.sleep(15000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-
+            sleep(15);
             mDevice.swipe(400,1000, 400,600,8);
-
-
+            fiveStars = mDevice.findObject(new UiSelector().description("5"));
+            goToMarketButton = mDevice.findObject(new UiSelector().resourceId("com.android.vending:id/review_continue_button"));
+            fiveStars.click();
+            submitButton.click();
         } catch (UiObjectNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    private void sleep(long sec){
+        try {
+            Thread.sleep(sec*1000);
+        } catch (InterruptedException e) {
             e.printStackTrace();
         }
     }
