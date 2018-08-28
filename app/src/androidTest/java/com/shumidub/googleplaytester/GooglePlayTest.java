@@ -41,7 +41,7 @@ public class GooglePlayTest {
         mDevice = UiDevice.getInstance(getInstrumentation());
 
         UiObject installButton = mDevice
-                .findObject(new UiSelector().text(appContext.getString(R.string.install2)));
+                .findObject(new UiSelector().text(appContext.getString(R.string.install)));
 
         editText = mDevice.findObject(new UiSelector().description("editText"));
         button = mDevice.findObject(new UiSelector().description("button"));

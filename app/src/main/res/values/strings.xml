@@ -1,6 +1,5 @@
 <resources>
-    <string name="app_name">GooglePlayTester</string>
-    <string name="start_test">START TEST PLAY MARKET</string>
-    <string name="install">УСТАНОВИТЬ</string>
-    <string name="install2">INSTALL</string>
+    <string name="app_name" translatable="false">GooglePlayTester</string>
+    <string name="start_test" translatable="false">START TEST PLAY MARKET</string>
+    <string name="install">INSTALL</string>
 </resources>
