@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        if (finishActivity) finish();
+        if (finishActivity)  super.onBackPressed();
         else Toast.makeText(this, "For exit press back again", Toast.LENGTH_SHORT).show();
         finishActivity = true;
         new Thread(()-> {
@@ -49,6 +49,5 @@ public class MainActivity extends AppCompatActivity {
             }
             finishActivity = false;
         });
-        super.onBackPressed();
     }
 }
