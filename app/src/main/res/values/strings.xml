@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GooglePlayTester</string>
+    <string name="start_test">Start test play market</string>
+    <string name="enter_target_package">Enter target package</string>
+</resources>
