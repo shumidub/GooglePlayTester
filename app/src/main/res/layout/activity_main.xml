@@ -8,19 +8,20 @@
 
     <EditText
         android:id="@+id/et"
+        android:contentDescription="editText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="256dp"
         android:layout_marginEnd="8dp"
         android:gravity="center"
-        android:text="@string/enter_target_package"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/btnStartTest"
+        android:contentDescription="button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
