@@ -48,6 +48,7 @@ public class GooglePlayTest {
 
         try {
             editText.setText("artemshumidub.ru.news");
+            mDevice.pressBack();
             button.click();
 
             try {
